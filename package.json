@@ -1,0 +1,50 @@
+{
+	"name": "@mariosant/stylish",
+	"author": {
+		"name": "Marios Antonoudiou",
+		"email": "mariosant@sent.com",
+		"website": "https://mariosant.carrd.co"
+	},
+	"website": "https://github.com/mariosant/stylish",
+	"repository": "github:mariosant/stylish",
+	"description": "CSS in JS helpers at your disposal.",
+	"version": "0.1.0",
+	"main": "./dist/index.js",
+	"scripts": {
+		"prepack": "babel -d dist 'src/**/*.js'",
+		"test": "nyc --check-coverage mocha src/**/*.test.js",
+		"lint": "xo 'src/**/*.js'"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"ramda": "0.26.1"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.5.5",
+		"@babel/core": "^7.5.5",
+		"@babel/preset-env": "^7.5.5",
+		"@babel/register": "^7.5.5",
+		"chai": "^4.2.0",
+		"eslint-plugin-prettier": "^3.1.0",
+		"husky": "^3",
+		"mocha": "^6.2.0",
+		"nyc": "^14.1.1",
+		"prettier": "^1.16.4",
+		"standard-version": "^6.0.1",
+		"xo": "^0.24.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-push": "yarn lint && yarn test"
+		}
+	},
+	"mocha": {
+		"require": "@babel/register"
+	},
+	"xo": {
+		"env": [
+			"mocha"
+		],
+		"prettier": true
+	}
+}
