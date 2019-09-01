@@ -1,0 +1,23 @@
+# For more Node.js and JavaScript information and examples, see
+# https://docs.semaphoreci.com/article/82-language-javascript-and-nodejs
+version: v1.0
+name: @mariosant/stylish
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Assure quality
+    task:
+      jobs:
+        - name: Run some code
+          commands:
+            - yarn install
+        - name: Lint and test
+          commands: 
+            - yarn lint
+            - yarn test
+            
+            # Uncomment the following line to pull your code,
+            # then proceed by adding your custom commands:
+            #- checkout
